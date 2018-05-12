@@ -1,0 +1,29 @@
+{
+  "name": "WazApp",
+  "version": "1.0.0",
+  "description": "A minimal WhatsApp client ",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-linux64": "electron-packager . WazApp --overwrite --asar --platform=linux --arch=x64 --icon=app/icons/icon.png --prune=true ",
+    "build-linux32": "electron-packager . WazApp --overwrite --asar --platform=linux --arch=ia32 --icon=app/icons/icon.png --prune=true ",
+    "package-linux": "electron-packager .  electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=app/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "repository": "https://github.com/miccar/wazapp/",
+  "keywords": [
+    "linux",
+    "debian",
+    "ubuntu",
+    "WhatsApp"
+  ],
+  "author": "miccar",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "auto-launch": "^5.0.1",
+    "node-notifier": "^5.1.2"
+  },
+  "dependencies": {
+    "electron-packager": "^12.0.2"
+  }
+}
