@@ -18,8 +18,14 @@ cd wazapp
 npm install
 # Run the app
 npm start
+
+```
+
+## Create linux executable file
+```bash
 # Create package for linux 64bit
 npm run build-linux64
 # Create package for linux 32bit
 npm run build-linux32
 ```
+This command will create a folder called Wazapp-linux32(64) that contains the executable file. Now you have to include this file as a startup application of your Linux operating system 
