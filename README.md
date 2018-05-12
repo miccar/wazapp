@@ -35,5 +35,6 @@ This command will create a folder called Wazapp-linux32(64) that contains the ex
 If you have not already installed, include electron-packager for creating the linux executable file with the following command
 
 ```bash
+#install the dependency 
 npm install electron-packager
 ```
