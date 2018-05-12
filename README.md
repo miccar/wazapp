@@ -1,5 +1,6 @@
 # Wazapp
-build your linux  client for WhatsApp 
+build your linux  client for WhatsApp. 
+Unfortunately there is no official Whatsapp client for Linux operating systems. But we are a Linux users, if it is not exists, we will create it :) .
 
 **It is not an official application of WhatsApp Inc.**
 
