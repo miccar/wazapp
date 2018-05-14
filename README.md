@@ -4,7 +4,7 @@ Unfortunately there is no official Whatsapp client for Linux operating systems. 
 
 **It is not an official application of WhatsApp Inc.**
 
-This is a created with [Electron](https://electronjs.org/) 
+This is created with [Electron](https://electronjs.org/) 
 
 
 
