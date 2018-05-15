@@ -1,4 +1,4 @@
-# Wazapp
+# WazApp
 Build your linux  client for WhatsApp. 
 Unfortunately there is no official Whatsapp client for Linux operating systems. But we are a Linux users, if it is not exists, we will create it :) 
 
@@ -38,5 +38,5 @@ If it is not already installed, you have to include electron-packager for creati
 #install the dependency 
 npm install electron-packager
 ```
-## App on Ubuntu 18.04
+## WazApp on Ubuntu 18.04
 ![alt text](https://github.com/miccar/wazapp/blob/master/images/wazapp.jpg)
