@@ -38,3 +38,5 @@ If it is not already installed, you have to include electron-packager for creati
 #install the dependency 
 npm install electron-packager
 ```
+## App on Ubuntu 18.04
+![alt text](https://github.com/miccar/wazapp/blob/master/images/wazapp.jpg)
