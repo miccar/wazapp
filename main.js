@@ -8,14 +8,23 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 const {Menu, Tray} = require('electron')
-const isRunning = app.makeSingleInstance(() => {
-            if (mainWindow.window) {
+const gotTheLock = app.requestSingleInstanceLock()
+
+
+///second instance behaviour
+app.on('second-instance', (commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
+   if (mainWindow.window) {
                 if (mainWindow.window.isMinimized()) {
                     mainWindow.window.restore();
                 }
                 mainWindow.window.show();
             }
-  });
+})
+
+if (!gotTheLock) {
+  return app.quit()
+}
 
 
 //panel icon
@@ -45,13 +54,11 @@ let tray = null
 
     ])
     tray.setToolTip('WazApp.')
+
     tray.setContextMenu(contextMenu)
 })
 
 
-if (isRunning) {
-    app.quit();
-}
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -66,27 +73,36 @@ function createWindow () {
     title: "WazApp",
     autoHideMenuBar: false,
     icon: path.join(__dirname, 'app/icons/icon.png'),
-    show:false
-  })
+    show:true
+})
+
+//set user agent of browser #avoid whatsapp error on chromium browser
+mainWindow.webContents.setUserAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
 
 
-  mainWindow.loadURL('https://web.whatsapp.com');
+
+  // and load the index.html of the app.
+  mainWindow.loadFile('index.html')
 
 
-  mainWindow.on('page-title-updated', osLinux((event, title) => {
 
-       var msgCount = title.match(/\((\d+)\)/);
-       msgCount = msgCount ? msgCount[1] : '';
 
-      if (parseInt(msgCount) > 0) {
-      tray.setImage(path.join(__dirname, 'app/icons/iconmsg.png'));
+   //notifications
+   mainWindow.on('page-title-updated', osLinux((event, title) => {
 
-      }else{
-          tray.setImage(path.join(__dirname, 'app/icons/icon.png'));
+      var msgCount = title.match(/\((\d+)\)/);
+      msgCount = msgCount ? msgCount[1] : '';
 
-      }
+     if (parseInt(msgCount) > 0) {
+     tray.setImage(path.join(__dirname, 'app/icons/iconmsg.png'));
 
-  }))
+     }else{
+         tray.setImage(path.join(__dirname, 'app/icons/icon.png'));
+
+     }
+
+ }))
+
 
 
 
@@ -102,9 +118,6 @@ function createWindow () {
   })
 }
 
-
-
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -112,7 +125,7 @@ app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
+  // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
@@ -120,20 +133,18 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-
-
-  // On OS X it's common to re-create a window in the app when the
+  // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow()
   }
 })
 
-/*Utility functions*/
+//*Utility functions*/
 
 global.osLinux = function(callback) {
        if (process.platform === 'linux') {
            return Function.bind.apply(callback, this, [].slice.call(arguments, 0));
        }
        return function() {};
-     };
+}
