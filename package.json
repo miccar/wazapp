@@ -1,34 +1,33 @@
 {
-  "name": "WazApp",
-  "version": "2.0.0",
-  "description": "A minimal WhatsApp client that avoid WhatsApp works with Google Chrome 36+ problem with Chromium browser",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-  "build-linux64": "electron-packager . WazApp --overwrite --asar --platform=linux --arch=x64 --icon=app/icons/icon.png --prune=true ",
-  "build-linux32": "electron-packager . WazApp --overwrite --asar --platform=linux --arch=ia32 --icon=app/icons/icon.png --prune=true ",
-  "package-linux": "electron-packager .  electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=app/icons/png/1024x1024.png --prune=true --out=release-builds"
-  },
-  "repository": {
-      "type": "git",
-      "url": "https://github.com/miccar/wazapp/"
-    },
-  "keywords": [
-    "Electron",
-    "WhatsApp",
-    "linux",
-    "debian",
-    "ubuntu",
-    "fedora",
-    "WhatsApp works with Google Chrome 36+"
-  ],
-  "author": "miccar",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^3.1.0",
-    "node-notifier": "^5.3.0"
-  },
-  "dependencies": {
-   "electron-packager": "^13.0.1 "
- }
+	"name": "ws-custom-client",
+	"version": "3.0.0",
+	"description": "Whatsapp Custom Client for Linux",
+	"main": "index.js",
+	"scripts": {
+		"start": "electron .",
+		"build-linux64": "electron-packager . wscc --overwrite --asar --platform=linux --arch=x64 --icon=assets/icons/icon.png --prune=true --out=release",
+		"build-linux32": "electron-packager . wscc --overwrite --asar --platform=linux --arch=ia32 --icon=assets/icons/icon.png --prune=true --out=release",
+		"package-linux": "electron-packager . wscc --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/miccar/wazapp/"
+	},
+	"keywords": [
+		"Electron",
+		"WhatsApp",
+		"linux",
+		"debian",
+		"ubuntu",
+		"fedora",
+		"WhatsApp works with Google Chrome 36+",
+		"WhatsApp custom client"
+	],
+	"license": "CC0-1.0",
+	"devDependencies": {
+		"electron": "^4.1.1"
+	},
+	"dependencies": {
+		"electron-packager": "^13.1.1"
+	}
 }
