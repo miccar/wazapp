@@ -54,7 +54,7 @@ If it is not already installed, you have to include electron-packager for creati
 #install the dependency 
 npm install electron-packager
 ```
-## WazApp on Ubuntu 18.04
+## WazApp on Ubuntu 19.04
 The app starts in Hide mode(a background mode, only the icon on the panel is showed and the new message will be notified).
 Clicking on the _Show_ item, the app will be open.
  ![alt text](https://github.com/miccar/wazapp/blob/2%2C0/images/wazapp.jpg)
