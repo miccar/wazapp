@@ -1018,7 +1018,7 @@ html[dir="ltr"] .UPNDG:hover:not(._1xQmx) {
 .message-in,
 .message-out,
 .message {
-	background-color: var(--darker) !important;
+	/*background-color: var(--darker) !important;*/
 }
 
 
@@ -1028,7 +1028,7 @@ html[dir="ltr"] .UPNDG:hover:not(._1xQmx) {
 .message-out .selectable-text,
 .quoted-mention,
 ._1upWv {
-	color: var(--light) !important;
+	/*color: var(--light) !important;*/
 }
 
 
