@@ -125,7 +125,7 @@ function createWindow() {
 	})
 
 	// Open the DevTools.
-	// window.webContents.openDevTools()
+	// wscc.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	wscc.on('closed', function () {
